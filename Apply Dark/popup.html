@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style>
+        body {
+            padding: 20px;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <h2>Dark Theme Extension</h2>
+    <p>Apply a dark theme to the current website</p>
+    <button id="apply-dark-theme">Apply Dark Theme</button>
+  </body>
+  
+  <script>
+    document.getElementById("apply-dark-theme").addEventListener("click", function() {
+    chrome.tabs.insertCSS({
+        code: darkCSS
+    });
+    });
+  </script>
+  
+</html>
