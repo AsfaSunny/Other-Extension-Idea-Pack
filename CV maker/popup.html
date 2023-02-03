@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <style>
+      body {
+        padding: 20px;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      form div {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+        padding-right: 20px;
+      }
+
+      input[type="text"] {
+        width: 200px;
+        padding: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>CV Maker Extension</h2>
+    <p>Enter your details to create a CV</p>
+    <form>
+      <div>
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" required>
+      </div>
+      <!-- Add more form fields here -->
+    </form>
+    <button id="generate-cv">Generate CV</button>
+  </body>
+  
+  <script>
+    document.getElementById("generate-cv").addEventListener("click", function() {
+    var fullName = document.getElementById("full-name").value;
+    /* Get values of other form fields here */
+
+    /* Generate the CV content */
+    var cvContent = "CV of " + fullName + "\n\n";
+    /* Add other CV details here */
+
+    /* Download the CV as a text file */
+    var a = document.createElement("");
+    }
+  </script>
+</html>

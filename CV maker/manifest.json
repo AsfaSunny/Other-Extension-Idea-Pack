@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "CV Maker Extension",
+  "version": "1.0",
+  "description": "A simple Chrome extension that helps users create a CV",
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
+
+  
