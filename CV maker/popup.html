@@ -1,28 +1,25 @@
+// popup.html
 <html>
   <head>
     <style>
       body {
         padding: 20px;
         font-family: sans-serif;
-        text-align: center;
       }
-
-      form div {
-        margin-bottom: 20px;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-
-      label {
-        display: inline-block;
-        width: 120px;
-        text-align: right;
-        padding-right: 20px;
-      }
-
-      input[type="text"] {
-        width: 200px;
+      label, input, textarea {
+        width: 100%;
         padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
       }
-
+      label {
+        text-align: left;
+      }
       button {
         padding: 10px 20px;
         border: none;
@@ -31,32 +28,46 @@
         cursor: pointer;
       }
     </style>
-  </head>
 
+  </head>
   <body>
+
     <h2>CV Maker Extension</h2>
-    <p>Enter your details to create a CV</p>
     <form>
       <div>
         <label for="full-name">Full Name:</label>
-        <input type="text" id="full-name" required>
+        <input type="text" id="full-name" name="full-name">
       </div>
-      <!-- Add more form fields here -->
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div>
+        <label for="summary">Summary:</label>
+        <textarea id="summary" name="summary"></textarea>
+      </div>
+      <button type="submit">Save</button>
     </form>
-    <button id="generate-cv">Generate CV</button>
+
   </body>
-  
+
   <script>
-    document.getElementById("generate-cv").addEventListener("click", function() {
-    var fullName = document.getElementById("full-name").value;
-    /* Get values of other form fields here */
-
-    /* Generate the CV content */
-    var cvContent = "CV of " + fullName + "\n\n";
-    /* Add other CV details here */
-
-    /* Download the CV as a text file */
-    var a = document.createElement("");
-    }
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      // Get the user's information
+      const fullName = document.querySelector("#full-name").value;
+      const email = document.querySelector("#email").value;
+      const phone = document.querySelector("#phone").value;
+      const summary = document.querySelector("#summary").value;
+      // Store the user's information in chrome.storage
+      chrome.storage.sync.set({ fullName, email, phone, summary }, function() {
+        console.log("CV information saved successfully.");
+      });
+    });
   </script>
+  
 </html>
